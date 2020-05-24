@@ -1,7 +1,7 @@
 {
   "name": "react-obfuscated-mailto",
   "version": "0.1.0",
-  "description": "React component for embedding a mailto link without it being scrapable by bots.",
+  "description": "React component for embedding a mailto link without it being scrapable by crawlers.",
   "main": "src/index.js",
   "author": "Jakub Arnold <darthdeus@gmail.com> (https://jakuba.net)",
   "license": "MIT",

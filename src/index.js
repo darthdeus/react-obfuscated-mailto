@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-export default function ObfuscatedMailto({ base64Email }) {
-  const [myEmail, setMyEmail] = useState("loading ");
-
-  const loadTime = 5000;
-  const step = 1000;
-  const steps = [];
-
-  for (let i = step; i < loadTime; i += step) {
-    steps.push(i);
-  }
+export default function ObfuscatedMailto({
+  base64Email,
+  loadTime = 5000,
+  step = 1000,
+  loadingMessage = "Loading ",
+}) {
+  const [myEmail, setMyEmail] = useState(loadingMessage);
 
   useEffect(() => {
+    const steps = [];
+
+    for (let i = step; i < loadTime; i += step) {
+      steps.push(i);
+    }
+
     const ids = steps.map(time => {
       setTimeout(() => setMyEmail(x => x + "."), time);
     });
@@ -19,8 +22,15 @@ export default function ObfuscatedMailto({ base64Email }) {
     setTimeout(() => {
       ids.map(clearTimeout);
       setMyEmail(atob(base64Email));
-    }, loadTime + 1000);
+    }, loadTime + step);
   }, []);
 
-  return <a href={`mailto:${myEmail}`}>{myEmail}</a>;
+  return React.createElement(
+    "a",
+    {
+      href: `mailto:${myEmail}`,
+    },
+    myEmail
+  );
+  // return <a href={`mailto:${myEmail}`}>{myEmail}</a>;
 }
