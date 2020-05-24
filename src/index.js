@@ -32,5 +32,4 @@ export default function ObfuscatedMailto({
     },
     myEmail
   );
-  // return <a href={`mailto:${myEmail}`}>{myEmail}</a>;
 }
