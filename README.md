@@ -1,4 +1,4 @@
-# React Obfuscated Mailto
+# React Obfuscated Mailto [![CircleCI](https://circleci.com/gh/darthdeus/react-obfuscated-mailto.svg?style=shield)](https://circleci.com/gh/darthdeus/react-obfuscated-mailto)
 
 A simple component to embed a mailto link while keeping the email hidden from crawlers. The component accepts a base64 encoded email string and will show a loading indicator for a couple of seconds before replacing it with the real decoded email. This way even a crawler with JavaScript enabled can't crawl the email address unless it waits for a given amount of time.
 
